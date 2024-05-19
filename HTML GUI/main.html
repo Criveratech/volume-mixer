@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <style>
+            .volume {
+                height:60px;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: solid;
+                border-color:black;
+                mix-blend-mode: difference;
+                margin:5px;
+            }
+
+            .volumeBar {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: green;
+            }
+            .volumeText{
+                z-index:100;
+            }
+            .volume>* {
+            color: black;
+            color: green;
+            font-size: 3em;
+            mix-blend-mode: difference;
+            }
+            input{
+                display: inline-block;
+                background: transparent;
+            }
+
+            input[type="range"] {
+                margin: auto;
+                -webkit-appearance: none;
+                position: relative;
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+                cursor: pointer;
+                border-radius: 0;
+            }
+
+            ::-webkit-slider-thumb {
+                
+                -webkit-appearance: none;
+                width: 0px;
+                height: 100%;
+                background: #fff;
+                box-shadow: -20000px 0 0 20000px green;
+                border: 0;
+            }
+
+            .test{
+                z-index: -1;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div id="volumesDiv">
+        </div>
+    </body>
+</html>
