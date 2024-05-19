@@ -15,6 +15,7 @@ A Small (optional) Spotify Widget that Shows the Current Song, Artist, Album Art
 + Requires: Python >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <3.11 
 + Clone git repo
 + pip install -r requirements.txt
++ Update Config Variables (ip, port...) see [config.ini options](#configini-options)
 ### running the Websocket Server
 python "Websocket Server\Server.py" on the Windows computer that you want to control
 I recommend creating a bat file under "C:\Users\<yourname>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" so it autostarts
