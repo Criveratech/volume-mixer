@@ -2,7 +2,7 @@
 Websocket based adaptive volume mixer for Windows 10 with Python and HTML interface
 
 ![Features showcase gif](docs/features.gif)
-###Features
+### Features
 Change Volume of any Process live.
 Works across Multiple Audio Interfaces, e.g Discord on a Seperate audio Interface.
 As long as you can control the Volume in the Windows Volume mixer, this should be able to control it.
