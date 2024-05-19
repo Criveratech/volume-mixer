@@ -62,7 +62,7 @@ keep in mind the config.ini needs to be one folder above the python files so if 
 |windowHeight|Number|pixel height of the gui window|
 |wssUrl|raw text|ws://ip:port or ws://hostname/subpath if using a reverse proxy|
 |Websocket Server|||
-|bindIp|ipv4 adress|the ipv4 the Websocket Server will bind to|
+|bindIp|ipv4 adress|the local ipv4 the Websocket Server will bind to|
 |bindIp|port|the port the Websocket Server will bind to|
 |spotipyRedirectUrl|raw text|callback url for spotipy authentication, set in your spotify app. e.g http://localhost:8080/callback|
 |blacklist|raw text list|processes that should not be picked up by the volume mixer. format is as follows: blacklist = AMDRSServ.exe\nCLMgr.exe\nexplorer.exe|
