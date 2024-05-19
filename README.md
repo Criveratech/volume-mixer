@@ -3,20 +3,29 @@ Websocket based adaptive volume mixer for Windows 10 with Python and HTML interf
 
 ![Features showcase gif](docs/features.gif)
 ### Features
-Change Volume of any Process live.
-Works across Multiple Audio Interfaces, e.g Discord on a Seperate audio Interface.
-As long as you can control the Volume in the Windows Volume mixer, this should be able to control it.
-Live update of Processes.
-Also extracts the Process Icon from the running .exe and uses it as Icon.
-A Small (optional) Spotify Widget that Shows the Current Song, Artist, Album Art, Playing progress and Liked Status. You can like/unlike a song by tapping on it.
-(need to set up a Spotify App and Spotipy Credentials see their doc [here](https://spotipy.readthedocs.io/en/2.22.1/#quick-start))
+- Change Volume of any Process live.  
+- Works across Multiple Audio Interfaces, e.g Discord on a Seperate audio Interface.  
+- As long as you can control the Volume in the Windows Volume mixer, this should be able to control it.  
+- Live update of Processes.  
+- Also extracts the Process Icon from the running .exe and uses it as Icon.  
+- A Small (optional) Spotify Widget that Shows the Current Song, Artist, Album Art, Playing progress and Liked Status. You -can like/unlike a song by tapping on it.
+(need to set up a Spotify App and Spotipy Credentials see their doc [here](https://spotipy.readthedocs.io/en/2.22.1/#quick-start))  
 
 ## Installation
 + Requires: Python >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <3.11 
 + Clone git repo
 + pip install -r requirements.txt
 + Update Config Variables (ip, port...) see [config.ini options](#configini-options)
-### running the Websocket Server
+  
+### Setting up spotipy
+Only needed if you want the Spotify Widget  
+- Create a Spotify app, it needs the following permissions: user-read-currently-playing user-library-modify user-library-read  
+- If you dont know how to create a spotify app and obtain your ID and Secret it's described [here](https://developer.spotify.com/documentation/web-api/concepts/apps)  
+- Set them in as windows Env variables like :  
+![Spotipy example credentials in Winows Environment Variables](docs/path.png)  
+
+
+### Running the Websocket Server
 python "Websocket Server\Server.py" on the Windows computer that you want to control
 I recommend creating a bat file under "C:\Users\<yourname>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" so it autostarts
 e.g
@@ -24,10 +33,10 @@ e.g
 cd "C:\PythonVolCtrl\volume site\dev"
 start pythonw VolCtrl4.1(Server).py
 ```
-### running the Python Gui
+### Running the Python Gui
 python "Python Gui\gui.py" on the device thats supposed to control the Windows volume mixer
 
-### running the HTML Gui
+### Running the HTML Gui
 you will need to set up a virtualhost in Apache2.
 placeholders that you need to replace with your own values:
 +<websocketServerIp>
