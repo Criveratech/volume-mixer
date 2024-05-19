@@ -32,11 +32,13 @@ placeholders that you need to replace with your own values:
 +<websocketServerIp>
 +<websocketServerPort>
 +<subPath>
++<contentRoot> path to the HTML Gui folder
 ```
 <virtualhost *:80 or 443>
         ProxyRequests Off
         ProxyPreserveHost On
 
+        DocumentRoot <contentRoot>
 
         # ProxyPass directives for WebSocket
         <Location /<subPath>>
