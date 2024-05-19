@@ -19,10 +19,10 @@ config.read(os.path.join(Path(__file__).parent.parent.resolve(),'config.ini'))
 enableSpotifyPlugin = config.getboolean('General', 'enableSpotifyPlugin')
 turnScreenOffWithoutConnection = config.getboolean('PyGui', 'turnScreenOffWithoutConnection')
 wssUrl = config.get('PyGui', 'wssUrl') 
-windowWidth = config.get('PyGui', 'width')
-windowWidth = config.get('PyGui', 'width')
+windowWidth = config.getint('PyGui', 'windowWidth')
+windowHeight = config.getint('PyGui', 'windowHeight')
 autoFullscreen = config.get('PyGui', 'autoFullscreen')
-windowHeight = config.get('PyGui', 'hideCursor')
+hideCursor = config.get('PyGui', 'hideCursor')
 
 #1ED760 spotify like green
 
@@ -126,9 +126,9 @@ window.setStyleSheet("background-color: #222222;")
 #     window.show()
 # #pi zero with a 5" touchscreen
 # elif sys.platform.startswith('linux'):
-if autoFullscreen:
-    window.setCursor(Qt.BlankCursor)
 if hideCursor:
+    window.setCursor(Qt.BlankCursor)
+if autoFullscreen:
     window.showFullScreen()
 
 
