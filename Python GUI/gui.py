@@ -18,7 +18,12 @@ config = ConfigParser()
 config.read(os.path.join(Path(__file__).parent.parent.resolve(),'config.ini'))
 enableSpotifyPlugin = config.getboolean('General', 'enableSpotifyPlugin')
 turnScreenOffWithoutConnection = config.getboolean('PyGui', 'turnScreenOffWithoutConnection')
-wssUrl = config.get('PyGui', 'wssUrl')
+wssUrl = config.get('PyGui', 'wssUrl') 
+windowWidth = config.get('PyGui', 'width')
+windowWidth = config.get('PyGui', 'width')
+autoFullscreen = config.get('PyGui', 'autoFullscreen')
+windowHeight = config.get('PyGui', 'hideCursor')
+
 #1ED760 spotify like green
 
 def muteColor(color):
@@ -110,18 +115,20 @@ if turnScreenOffWithoutConnection:
 app = QApplication([])
 # Create the main window widget and layout
 window = VolumeController(wssUrl)
-window.resize(480,800)
+window.resize(windowWidth,windowHeight)
 window.setAttribute(Qt.WA_StyledBackground, True)
 window.setStyleSheet("background-color: #222222;")
 
 
 
 #i developed this in windows so i needed my cursor and didnt want fullscreen
-if sys.platform.startswith('win'):
-    window.show()
-#pi zero with a 5" touchscreen
-elif sys.platform.startswith('linux'):
+# if sys.platform.startswith('win'):
+#     window.show()
+# #pi zero with a 5" touchscreen
+# elif sys.platform.startswith('linux'):
+if autoFullscreen:
     window.setCursor(Qt.BlankCursor)
+if hideCursor:
     window.showFullScreen()
 
 
