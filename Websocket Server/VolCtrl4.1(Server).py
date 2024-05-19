@@ -13,9 +13,6 @@ import os
 from AudioUtilities import MyAudioUtilities
 
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
-from spotipy.oauth2 import SpotifyOAuth
-client_credentials_manager=SpotifyClientCredentials()
 
 from ctypes import Array, byref, c_char, memset, sizeof
 from ctypes import c_int, c_void_p, POINTER
@@ -169,6 +166,9 @@ def extract_icon(filename: str, size: IconSize) -> Array[c_char]:
 
 
 if enableSpotifyPlugin:
+    from spotipy.oauth2 import SpotifyClientCredentials
+    from spotipy.oauth2 import SpotifyOAuth
+    client_credentials_manager=SpotifyClientCredentials()
     SPOTIPY_CLIENT_ID = client_credentials_manager.client_id
     SPOTIPY_CLIENT_SECRET = client_credentials_manager.client_secret
     SPOTIPY_REDIRECT_URI = "http://localhost:8080/callback"
@@ -351,7 +351,6 @@ async def send_data_updates():
     global lastReceivedClientTime
     global lastTrack
     global isLiked
-    sentBefore = False
     while True:
         await asyncio.sleep(2)  # Delay for 1 second
         current_track = None
