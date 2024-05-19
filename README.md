@@ -12,6 +12,7 @@ A Small (optional) Spotify Widget that Shows the Current Song, Artist, Album Art
 (need to set up a Spotify App and Spotipy Credentials see their doc [here](https://spotipy.readthedocs.io/en/2.22.1/#quick-start))
 
 ## Installation
++ Requires: Python >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <3.11 
 + Clone git repo
 + pip install -r requirements.txt
 ### running the Websocket Server
