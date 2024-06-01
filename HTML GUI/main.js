@@ -5,17 +5,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //just put ws://ip:port of the websocket server
     //important distinction between wss (secure, your server needs to serve https with a certificate)
     //and ws (HTTP on port 80, needs no certificate)
-    const wss = new WebSocket("ws://192.168.178.20:8001");
+    let wss = null;
+    let interval = null;
     //const wss = new WebSocket("wss://mydomain/wss");
-
-    wss.onopen = function(){
-        
-        wss.onmessage = function incoming(message) {
-            
-            parseJson(message.data,wss)
-          //console.log('received: %s', message.data);
-        };
+    function connect(){
+        if(wss){return}
+        wss = new WebSocket("ws://192.168.178.20:8001");
+        wss.onclose = function(){
+            wss.close()
+            wss = null;
+            wss.terminate()
+            interval = setInterval(connect,1000)
+        }
+        wss.onopen = function(){
+            console.log("SUCESSFULY CONECCT")
+            clearInterval(interval)
+            wss.onmessage = function incoming(message) {
+                
+                parseJson(message.data,wss)
+              //console.log('received: %s', message.data);
+            };
+        }
     }
+    connect()
+    
 })
 
 function parseJson(jsonString,wss){
