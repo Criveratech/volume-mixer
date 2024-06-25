@@ -36,29 +36,8 @@ start pythonw VolCtrl4.1(Server).py
 ### Running the Python Gui
 python "Python Gui\gui.py" on the device thats supposed to control the Windows volume mixer
 
-### Running the HTML Gui
-you will need to set up a virtualhost in Apache2.<br>
-placeholders that you need to replace with your own values:
-+ \<websocketServerIp\> 
-+ \<websocketServerPort\>
-+ \<subPath\>
-+ \<contentRoot\> path to the HTML Gui folder
-```
-<virtualhost *:80 or 443>
-
-
-        DocumentRoot <contentRoot>
-
-        # ProxyPass directives for WebSocket
-        # Uncomment this if running on a domain
-        #ProxyRequests Off
-        #ProxyPreserveHost On
-        #<Location /<subPath>>
-        #        ProxyPass "ws://<websocketServerIp>:<websocketServerPort>"
-        #        ProxyPassReverse "ws://<websocketServerIp>:<websocketServerPort>"
-        #</Location>
-</virtualhost>
-```
+### Running the HTML Gui with Apache2 example
+You can just put main.js and index.html under /var/www/html after installing apache2<br>
 
 ### config.ini options
 keep in mind the config.ini needs to be one folder above the python files so if the path to the python file is whatever/something/file.py the config.ini is expected to be at whatever/config.ini
