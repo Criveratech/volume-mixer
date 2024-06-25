@@ -39,10 +39,10 @@ python "Python Gui\gui.py" on the device thats supposed to control the Windows v
 ### Running the HTML Gui
 you will need to set up a virtualhost in Apache2.
 placeholders that you need to replace with your own values:
-+<websocketServerIp>
-+<websocketServerPort>
-+<subPath>
-+<contentRoot> path to the HTML Gui folder
++ \<websocketServerIp\>
++ \<websocketServerPort\>
++ \<subPath\>
++ \<contentRoot\> path to the HTML Gui folder
 ```
 <virtualhost *:80 or 443>
         ProxyRequests Off
