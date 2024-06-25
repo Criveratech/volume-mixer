@@ -45,13 +45,14 @@ placeholders that you need to replace with your own values:
 + \<contentRoot\> path to the HTML Gui folder
 ```
 <virtualhost *:80 or 443>
-        ProxyRequests Off
-        ProxyPreserveHost On
+
 
         DocumentRoot <contentRoot>
 
         # ProxyPass directives for WebSocket
         # Uncomment this if running on a domain
+        #ProxyRequests Off
+        #ProxyPreserveHost On
         #<Location /<subPath>>
         #        ProxyPass "ws://<websocketServerIp>:<websocketServerPort>"
         #        ProxyPassReverse "ws://<websocketServerIp>:<websocketServerPort>"
