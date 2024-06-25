@@ -37,7 +37,7 @@ start pythonw VolCtrl4.1(Server).py
 python "Python Gui\gui.py" on the device thats supposed to control the Windows volume mixer
 
 ### Running the HTML Gui
-you will need to set up a virtualhost in Apache2.
+you will need to set up a virtualhost in Apache2.<br>
 placeholders that you need to replace with your own values:
 + \<websocketServerIp\> 
 + \<websocketServerPort\>
