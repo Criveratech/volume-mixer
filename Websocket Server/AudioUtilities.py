@@ -49,9 +49,17 @@ class MyAudioUtilities(AudioUtilities):
 
     @staticmethod
     def getCombinedAudioSessions():
+        #this is only needed if you have for example spotify on a different sound output
+        #i dont do anymore so you'll have to finaggle this yourself (or open an issue on github)
         if not MyAudioUtilities.mixer_output:
             devicelist = AudioUtilities.GetAllDevices()
             for device in devicelist:
+                #AudioDevice: Speakers (VB-Audio Voicemeeter VAIO)
                 if "AudioDevice: VoiceMeeter Aux Input (VB-Audio VoiceMeeter AUX VAIO)" == str(device):
                     MyAudioUtilities.mixer_output = device
-        return MyAudioUtilities.GetAllSessions()+MyAudioUtilities.GetAllSessions(MyAudioUtilities.mixer_output.id)
+        
+        if(not MyAudioUtilities.mixer_output):
+            return MyAudioUtilities.GetAllSessions()    
+        else:
+            return MyAudioUtilities.GetAllSessions()+MyAudioUtilities.GetAllSessions(MyAudioUtilities.mixer_output.id)
+        
